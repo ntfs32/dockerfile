@@ -2,10 +2,10 @@ name: ci
 
 on:
   push:
-    branches: main
+    branches: [ main ]
 
 jobs:
-  path-context:
+  build-docker-image:
     runs-on: ubuntu-latest
     steps:
       -
