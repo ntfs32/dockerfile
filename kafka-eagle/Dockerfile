@@ -1,5 +1,9 @@
 FROM openjdk:8-alpine
+
+LABEL maintainer="shadock<hushuang123a@gmail.com>"
+
 ENV version=2.0.3
+
 ENV KE_HOME=/kafka-eagle
 RUN apk update && \
         apk add curl sqlite && \
