@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: master
+    branches: main
 
 jobs:
   path-context:
@@ -29,6 +29,5 @@ jobs:
         with:
           context: kafka-eagle
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/kafka-eagle:latest
