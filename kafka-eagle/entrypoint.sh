@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ADMIN=${ADMIN:-admin}
-PASSWORD=${PASSWORD:-8a9a5d9c6bd2b15c8c}
 echo "configuration file is: /kafka-eagle/conf/system-config.properties"
 echo "system admin user: ${ADMIN}"
 echo "system admin password: ${PASSWORD}"
