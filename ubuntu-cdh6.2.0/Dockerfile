@@ -39,9 +39,10 @@ RUN \
     tar zxf jdk-8u271-linux-x64.tar.gz && \
     rm -rf jdk-8u271-linux-x64.tar.gz && \
     ## install cdh 6.2.0 mirrors
-    wget -O /etc/apt/sources.list.d/cloudera-manager.list -q https://archive.cloudera.com/cm6/${CDH_VERSION}/ubuntu1804/apt/cloudera-manager.list && \
+    echo "deb [arch=amd64] http://archive.cloudera.com/cdh6/${CDH_VERSION}/ubuntu1804/apt bionic-cdh${CDH_VERSION} contrib" > /etc/apt/sources.list.d/cloudera-cdh.list && \
+    echo "deb [arch=amd64] http://archive.cloudera.com/cm6/${CDH_VERSION}/ubuntu1804/apt bionic-cm${CDH_VERSION} contrib" > /etc/apt/sources.list.d/cloudera-manager.list && \
     curl -sSl https://archive.cloudera.com/cm6/${CDH_VERSION}/ubuntu1804/apt/archive.key | apt-key add - && \
-    curl -sSl https://archive.cloudera.com/cdh6/6.2.0/ubuntu1804/apt/archive.key |apt-key add - && \
+    curl -sSl https://archive.cloudera.com/cdh6/${CDH_VERSION}/ubuntu1804/apt/archive.key |apt-key add - && \
     ## update mirrors
     apt-get update && \
     apt-get -y install \
