@@ -41,10 +41,20 @@ RUN \
     ## install cdh 6.2.0 mirrors
     wget -O /etc/apt/sources.list.d/cloudera-manager.list -q https://archive.cloudera.com/cm6/${CDH_VERSION}/ubuntu1804/apt/cloudera-manager.list && \
     curl -sSl https://archive.cloudera.com/cm6/${CDH_VERSION}/ubuntu1804/apt/archive.key | apt-key add - && \
+    curl -sSl https://archive.cloudera.com/cdh6/6.2.0/ubuntu1804/apt/archive.key |apt-key add - && \
     ## update mirrors
     apt-get update && \
     apt-get -y install \
-    cloudera-manager-daemons
+    hadoop \
+    hive \
+    cron \
+    lzop \
+    python2.7 \
+    spark-core \
+    spark-worker \
+    spark-history-server \
+    spark-python \
+    krb5-user
 
 
 # COPY conf/flink/flink-1.10.0-bin-scala_2.12.tgz ${FLINK_FILE_DIR}/
